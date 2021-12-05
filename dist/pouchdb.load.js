@@ -4583,9 +4583,11 @@ exports.default = _default;
 },{"27":27,"30":30}],33:[function(require,module,exports){
 'use strict';
 
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
 var utils = require(1);
-var Checkpointer = require(13);
-var genReplicationId = require(16);
+var Checkpointer = _interopDefault(require(13));
+var generateReplicationId = _interopDefault(require(16));
 
 function parseDump(data) {
   var docs = [];
@@ -4635,7 +4637,7 @@ function loadString(db, data, opts, callback) {
         replIdOpts.view = opts.view;
       }
 
-      return genReplicationId(src, target, replIdOpts).then(function (replId) {
+      return generateReplicationId(src, target, replIdOpts).then(function (replId) {
         var state = {
           cancelled: false
         };
